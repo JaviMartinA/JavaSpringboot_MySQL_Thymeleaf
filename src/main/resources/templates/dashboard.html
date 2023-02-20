@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" th:href="@{/login}">Iniciar sesión</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/logout}">Cerrar sesión</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link" th:href="@{/}">Volver a inicio</a>
+      </li>
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <table class="table table-striped-columns">
+    <thead>
+    <tr>
+      <th scope="col">Tipo de tarea</th>
+      <th scope="col">Recuento</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Contador Tareas</td>
+      <td th:text="${contadorTareas}"></td>
+    </tr>
+    <tr>
+      <td>Tareas completadas</td>
+      <td th:text="${tareasCompletadas}"></td>
+    </tr>
+    <tr>
+      <td>Tareas pendientes</td>
+      <td th:text="${tareasPendientes}"></td>
+    </tr>
+    <tr>
+      <td>Tareas anuladas</td>
+      <td th:text="${tareasAnuladas}"></td>
+    </tr>
+    <tr>
+      <td>Promedio de tareas</td>
+      <td th:text="${promedioTareas}"></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

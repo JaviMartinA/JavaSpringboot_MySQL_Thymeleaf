@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Denegado</title>
+</head>
+<body>
+<h1>403: Acceso denegado</h1>
+<h1 th:insert= "fragmento.html" ></h1>
+<br><br><br><br>
+<a class="btn btn-outline-primary" th:href="@{/}">Volver a home</a>
+<a class="btn btn-outline-danger" th:href="@{/logout}">Cerrar sesión</a>
+</body>
+</html>

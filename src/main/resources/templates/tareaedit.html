@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+  <title>Gestor de tareas: Registro de nuevo usuario</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+
+  <form class="mt-5" th:action="@{/actualizar/tarea(nif=${usuario.nif})}" th:object="${tarea}" method="post">
+    <fieldset>
+      <legend>Edición de los datos de la tarea:</legend>
+      <div class="form-group">
+        <label for="id" class="col-sm-2 control-label">ID:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" readonly th:field="*{id}" id="id" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="nombre" class="col-sm-2 control-label">Nombre de la tarea:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" th:field="*{nombre}" id="nombre" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="descripcion" class="col-sm-2 control-label">Descripción:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" th:field="*{descripcion}" id="descripcion" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-2 control-label" for="estado">Estado:</label>
+        <div class="col-md-10">
+          <select class="form-control" id="estado" th:field="*{estado}">
+            <option value="1">Nueva</option>
+            <option value="2">En proceso</option>
+            <option value="3">Terminada</option>
+          </select>
+        </div>
+      </div>
+    </fieldset>
+    <div class="form-group">
+      <label for="nif" class="col-sm-2 control-label">NIF:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" readonly th:field="*{usuario.nif}" id="nif" />
+      </div>
+    </div>
+    <br>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-outline-warning">Guardar cambios</button>
+      </div>
+    </div>
+  </form>
+
+  <h1><a th:href="@{/}" class="btn btn-outline-info">Página principal</a></h1>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" th:href="@{/login}">Iniciar sesión</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/logout}">Cerrar sesión</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link" th:href="@{/}">Volver a inicio</a>
+      </li>
+    </div>
+  </div>
+</nav>
+<div class="container text-center">
+  <h1>Perfil de usuario</h1>
+  <p>Información del usuario:</p>
+  <table class="table table-striped">
+    <tbody>
+    <tr>
+      <td>NIF</td>
+      <td th:text="${nif}"></td>
+    </tr>
+    <tr>
+      <td>Nombre</td>
+      <td th:text="${nombre}"></td>
+    </tr>
+    <tr>
+      <td>Apellidos</td>
+      <td th:text="${apellidos}"></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

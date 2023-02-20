@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+  <title>Gestor de tareas: Crear tarea</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+  <br>
+  <form class="form-horizontal" th:action="@{/guardar/tarea(nif=${usuario.nif})}" th:object="${tarea}" method="post">
+    <fieldset>
+      <legend>Creación de una nueva tarea:</legend><br>
+      <div class="form-group">
+        <label class="col-md-2 control-label" for="nombre">Nombre:</label>
+        <div class="col-md-10">
+          <input type="text" class="form-control" id="nombre" th:field="*{nombre}" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-2 control-label" for="descripcion">Descripción:</label>
+        <div class="col-md-10">
+          <input type="text" class="form-control" id="descripcion" th:field="*{descripcion}" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-2 control-label" for="estado">Estado:</label>
+        <div class="col-md-10">
+          <select class="form-control" id="estado" th:field="*{estado}">
+            <option value="1">Nueva</option>
+            <option value="2">En proceso</option>
+            <option value="3">Terminada</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-10 col-md-offset-2">
+          <button type="submit" class="btn btn-primary">Guardar nueva tarea</button>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+  <h1 class="mt-5"><a th:href="@{/}">Página principal</a></h1>
+</div>
+</body>
+</html>

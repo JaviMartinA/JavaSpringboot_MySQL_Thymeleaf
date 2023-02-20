@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Usuario</title>
+
+  <!-- Cargar Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" th:href="@{/login}">Iniciar sesión</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/logout}">Cerrar sesión</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link" th:href="@{/}">Volver a inicio</a>
+      </li>
+    </div>
+  </div>
+</nav>
+
+<div class="container my-5">
+  <h1 class="text-center">Portal de usuario.</h1>
+  <br>
+  <div th:insert="fragmento.html"></div>
+</div>
+<div class="text-center" >
+  <p>Aqui puedes acceder a la configuracion de tu perfil</p>
+  <a th:href="@{/user/perfil}" class="btn btn-outline-primary">Perfil del usuario</a>
+</div>
+<div class="text-center">
+  <p>Aqui puedes acceder al control de tus tareas</p>
+  <a th:href="@{/user/tareas/listado}" class="btn btn-outline-primary">Administrar mis tareas</a>
+</div>

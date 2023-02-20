@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Index</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+<h1 class="text-center mt-5">Bienvenid@ a su gestor de tareas</h1>
+<nav class="navbar navbar-light bg-light">
+  <div th:insert="fragmento.html"></div>
+</nav>
+<div class="mx-auto">
+  <p>Tendrá que escoger si entrar como un usuario o como el administrador. Como administrador, podrás controlar los demás usuarios</p>
+  <div class="text-center">
+    <a th:href="@{/admin}" class="btn btn-outline-primary">Iniciar sesión como administrador</a>
+    <a th:href="@{/user}" class="btn btn-outline-secondary">Iniciar sesión como usuario</a>
+
+  </div>
+</div>
+</body>
+<style>
+  p{
+    text-align: center;
+  }
+</style>

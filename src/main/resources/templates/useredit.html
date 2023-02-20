@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+  <title>Gestor de tareas: Registro de nuevo usuario</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+  <form class="mt-5" th:action="@{/actualizar}" th:object="${usuario}" method="post">
+    <fieldset><legend>Edición de los datos del usuario: </legend><br>
+      <div class="form-group row">
+        <label for="nif" class="col-sm-2 col-form-label">NIF: </label>
+        <div class="col-sm-10">
+          <input type="text" readonly class="form-control-plaintext" id="nif" th:field="*{nif}">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="nombre" class="col-sm-2 col-form-label">Nombre: </label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="nombre" th:field="*{nombre}">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="apellidos" class="col-sm-2 col-form-label">Apellidos: </label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="apellidos" th:field="*{apellidos}">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-2 control-label" for="estado">Activo:</label>
+        <div class="col-md-10">
+          <select class="form-control" id="estado" th:field="*{activo}">
+            <option value="0">Inactivo</option>
+            <option value="1">Activo</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-sm-12 text-center">
+          <button type="submit" class="btn btn-outline-warning">Editar usuario</button>
+          <h2 class="mt-5"><a th:href="@{/}">Página principal</a></h2>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</div>
+</body>
+</html>

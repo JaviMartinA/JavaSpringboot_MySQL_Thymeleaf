@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Administrador</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" th:href="@{/login}">Iniciar sesión</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/logout}">Cerrar sesión</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link" th:href="@{/}">Volver a inicio</a>
+      </li>
+    </div>
+  </div>
+</nav>
+<div class="container my-5">
+  <h1 class="text-center">Portal de administrador</h1>
+</div>
+<a class="btn btn-primary btn-sm" th:href="@{/admin/dashboard}">Ir al dashboard</a>
+<br><br>
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th>NIF</th>
+    <th>Nombre</th>
+    <th>Apellidos</th>
+    <th>Nombre de la tarea</th>
+    <th>Descripción</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="usuario : ${listaUsuarios}">
+    <td th:text="${usuario.getNif()}"></td>
+    <td th:text="${usuario.getNombre()}"></td>
+    <td th:text="${usuario.getApellidos()}"></td>
+    <td>
+      <th:block th:each="tarea : ${usuario.getTareas()}">
+        <ul>
+          <li th:text="${tarea.getNombre()}"></li>
+        </ul>
+      </th:block>
+    </td>
+    <td>
+      <th:block th:each="tarea : ${usuario.getTareas()}">
+        <ul>
+          <li th:text="${tarea.getDescripcion()}"></li>
+        </ul>
+      </th:block>
+    </td>
+    <td>
+      <a class="btn btn-outline-primary" th:href="@{/admin/usuario/tareas/listado(nif=${usuario.getNif})}">Añadir o editar tareas a este usuario</a>
+    </td>
+    <td>
+      <form th:action="@{/admin/usuario/editar}" method="get">
+        <button type="submit" class="btn btn-outline-secondary" th:value="${usuario.getNif()}" name="nif">Editar usuario</button>
+      </form>
+    </td>
+    <td>
+      <form th:action="@{/admin/usuario/borrarUsuario}" method="get">
+        <button type="submit" class="btn btn-outline-danger" name="nif" th:value="${usuario.getNif()}">Eliminar usuario y sus tareas</button>
+      </form>
+    </td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>
